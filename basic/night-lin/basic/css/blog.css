@@ -69,6 +69,15 @@
     #nav-top{
     	display: block;
     }
+    /*gallery图像*/
+    .img-box-bg{
+		width: 48%;
+		margin-right: 2%;
+	}
+	.img-box-sm{
+		width: 24%;
+		margin-right: 1%;
+	}
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
@@ -99,6 +108,15 @@
     #nav-top{
     	display: block;
     }
+     /*gallery图像*/
+    .img-box-bg{
+		width: 48%;
+		margin-right: 2%;
+	}
+	.img-box-sm{
+		width: 24%;
+		margin-right: 1%;
+	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -127,6 +145,15 @@
     #nav-top{
     	display: block;
     }
+     /*gallery图像*/
+    .img-box-bg{
+		width: 48%;
+		margin-right: 2%;
+	}
+	.img-box-sm{
+		width: 24%;
+		margin-right: 1%;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -158,6 +185,15 @@
     #nav-top{
     	display: none;
     }
+    /*gallery图像只显示1-2张*/
+    .img-box-bg{
+		width: 96%;
+		margin:0 2%;
+	}
+	.img-box-sm{
+		width: 48%;
+		margin-right: 2%;
+	}
 }
 
 
@@ -539,14 +575,7 @@ tag a:active {
 	display: block
 }
 /*卡片*/
-.img-box-bg{
-	width: 48%;
-	margin-right: 2%;
-}
-.img-box-sm{
-	width: 24%;
-	margin-right: 1%;
-}
+
 .img-box{
 	float: left;
 	
@@ -575,7 +604,33 @@ tag a:active {
 	font-style: normal;
 	font-size: 12px;
 }
+/*-右侧进度条部分-*/
 
+.wid-rank{
+	padding: 20px;
+}
+.wid-rank h2{
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+.ul-rank{
+	padding-left: 20px;
+}
+.ul-rank li{
+	height: 25px;
+}
+
+progress {
+    margin-right: 5px;
+    width: 48%;
+    border: 1px solid #522a5c;  
+    background-color:#e6e6e6;
+    color: #522a5c; /*IE10*/
+}
+
+progress::-moz-progress-bar { background: #522a5c; }
+progress::-webkit-progress-bar { background: #e6e6e6; }
+progress::-webkit-progress-value  { background: #522a5c; }
 /*------------------gallery页面结束------------------*/
 
 /*页脚*/
