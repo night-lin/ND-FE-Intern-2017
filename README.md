@@ -6,7 +6,8 @@
 开发完一个任务后，向上游分支（本仓库）Pull Request，对代码的 Review 会在 PR 中进行。
 
 1. [初级任务](./basic/readme.md)
-2. [进阶任务（WIP）](./advanced/readme.md)
+2. [进阶任务](./advanced/readme.md)
+3. [高级任务（WIP）](./senior/readme.md)
 
 ## 学习资料
 
