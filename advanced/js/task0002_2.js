@@ -1,4 +1,8 @@
 window.onload = function () {
+  // 判断是否正在运行计时
+  var flagCount = 0
+  // 判断是否有打断信号传入
+  var flagStop = 0
   function showDate () {
     var value = $('#date').value.split('-')
     if (value.length !== 3) {
@@ -13,7 +17,7 @@ window.onload = function () {
     console.log(goalTime)
     // console.log(Date.parse(goalTime))
     if (isNaN(Date.parse(goalTime)) === true) {
-      alert('请输入合理的时间')
+      window.alert('请输入合理的时间')
       return false
     }
     goalTime = Date.parse(goalTime)
@@ -28,11 +32,22 @@ window.onload = function () {
       return false
     } else {
      // 执行倒计时
-      countDown(goalYear, goalMon, goalDay, subTime)
+      if (flagCount === 1) {
+        // 如果有倒计时函数正在运行 传入打断信号
+        flagStop = 1
+      }
+      setTimeout(function () {
+        if (flagCount === 0 && flagStop === 0) {
+        // 如果当前已经没有倒计时函数在运行 开始一个新的倒计时函数
+          countDown(goalYear, goalMon, goalDay, subTime)
+        }
+      }, 1000)
     }
   }
+  // 取消按钮的默认表单提交功能
   $.click('#inter-submit', invalidSubmit)
   $.click('#inter-submit', showDate)
+  // stopCount函数用来停止一个正在进行的count 以防同时有多个定时器
   function invalidSubmit (event) {
     event = event || window.event
   // 阻止表单默认提交
@@ -45,9 +60,13 @@ window.onload = function () {
 
   // 倒计时函数
   function countDown (goalYear, goalMon, goalDay, subTime) {
-    if (subTime === 0) {
-        // 结束
+    // 有count函数在运行的时候
+    flagCount = 1
+    if (subTime === 0 || flagStop === 1) {
+    // 结束，flagCount重置为0 打断信号也消耗完毕
       console.log('倒计时结束')
+      flagCount = 0
+      flagStop = 0
       return true
     } else {
       subTime -= 1000
